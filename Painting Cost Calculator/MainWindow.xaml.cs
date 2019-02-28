@@ -24,5 +24,15 @@ namespace Painting_Cost_Calculator
         {
             InitializeComponent();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Button was clicked!");
+        }
     }
 }

@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Painting_Cost_Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Painting Cost Calculator" Height="320" Width="370" HorizontalAlignment="Center">
+    <Grid Height="290" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Medium:" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
+
+        <TextBlock Text="Number of faces (portraits)" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
+
+        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Width:" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Height:" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
+
+        <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="105" Margin="10,35,0,0" VerticalAlignment="Top" Width="151">
+            <ListBoxItem>Oil painting</ListBoxItem>
+            <ListBoxItem>Charcoal drawing</ListBoxItem>
+            <ListBoxItem>Watercolour painting</ListBoxItem>
+            <ListBoxItem>Other</ListBoxItem>
+        </ListBox>
+
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="24 inches" VerticalAlignment="Top" Width="151"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="32 inches"  VerticalAlignment="Top" Width="160"/>
+
+        <TextBlock Text="Discount:" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
+        <TextBox Text="% Discount" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="10,35,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+
+        <TextBlock Text="Total Cost:" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
+        <TextBox Text="£ Price" Grid.Column="2" HorizontalAlignment="Left" Height="20" Margin="10,35,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+
+
+
+        <ListBox Grid.Column="2" HorizontalAlignment="Left" Height="105" Margin="10,35,0,0" VerticalAlignment="Top" Width="160">
+            <ListBoxItem>0</ListBoxItem>
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4+</ListBoxItem>
+        </ListBox>
+        <Button Content="Buy !" Grid.Column="2" HorizontalAlignment="Left" Margin="95,35,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
     </Grid>
 </Window>
