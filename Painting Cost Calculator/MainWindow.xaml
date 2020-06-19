@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Painting_Cost_Calculator"
         mc:Ignorable="d"
-        Title="Painting Cost Calculator" Height="320" Width="370" HorizontalAlignment="Center">
-    <Grid Height="290" VerticalAlignment="Top">
+        Title="Painting Cost Calculator" HorizontalContentAlignment="Center" Height="276.74" Width="370" HorizontalAlignment="Center" ResizeMode="NoResize">
+    <Grid Height="290" VerticalAlignment="Top" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="170" />
@@ -14,42 +14,40 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="70" />
-            <RowDefinition Height="70" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="140" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Medium:" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
+        <TextBlock Text="Medium:" FontWeight="Bold" Margin="0,5,10,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-        <TextBlock Text="Number of faces (portraits)" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
+        <TextBlock Text="Number of faces (portraits)" FontWeight="Bold" Margin="0,5,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Grid.Column="2" d:LayoutOverrides="TopMargin, BottomMargin"/>
 
-        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Width (Inches):" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Height (Inches):" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
+        <TextBlock FontWeight="Bold" Margin="0,0,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Width (Inches):" VerticalAlignment="Top" Height="20" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TextBlock FontWeight="Bold" Grid.Row="1" TextWrapping="Wrap" Text="Canvas Height (Inches):" VerticalAlignment="Top" Height="20" Grid.Column="2" d:LayoutOverrides="TopMargin, BottomMargin"/>
 
-        <ListBox x:Name="Selected_Medium" Grid.Column="1" HorizontalAlignment="Left" Height="105" Margin="10,35,0,0" VerticalAlignment="Top" Width="151">
+        <ListBox x:Name="Selected_Medium" Grid.Column="1" Margin="0,30,10,4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <ListBoxItem x:Name="Method_Oil">Oil painting</ListBoxItem>
             <ListBoxItem x:Name="Method_Charcoal">Charcoal drawing</ListBoxItem>
             <ListBoxItem x:Name="Method_Watercolour">Watercolour painting</ListBoxItem>
             <ListBoxItem x:Name="Method_Other">Other</ListBoxItem>
         </ListBox>
 
-        <TextBox Grid.Column="1" x:Name="InchesWidth" HorizontalAlignment="Left" Height="30" Margin="10,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Width="151"/>
-        <TextBox Grid.Column="2" x:Name="InchesHeight" HorizontalAlignment="Left" Height="30" Margin="10,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="32"  VerticalAlignment="Top" Width="160"/>
+        <TextBox Grid.Column="1" x:Name="InchesWidth" Margin="0,18,10,13" Grid.Row="1" TextWrapping="Wrap" Text="24" TextChanged="InchesWidth_TextChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TextBox Grid.Column="2" x:Name="InchesHeight" Margin="0,18,0,13" Grid.Row="1" TextWrapping="Wrap" Text="32" TextChanged="InchesHeight_TextChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-        <TextBlock Text="Discount (%):" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="1"/>
-        <TextBox x:Name="Discount" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="10,35,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+        <TextBlock Text="Discount (%):" FontWeight="Bold" Margin="0,0,10,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TextBox x:Name="Discount" Text="0" Grid.Column="1" Margin="0,20,10,20" Grid.Row="2" TextWrapping="Wrap" TextChanged="Discount_TextChanged" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-        <TextBlock Text="Total Cost:" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="151" Grid.Column="2"/>
-        <TextBox x:Name="TotalPrice" Text="£ Price" Grid.Column="2" HorizontalAlignment="Left" Height="20" Margin="10,35,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBlock Text="Total Cost:" FontWeight="Bold" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Grid.Column="2" d:LayoutOverrides="TopMargin, BottomMargin"/>
+        <TextBox x:Name="TotalPrice" Text="£ Price" Grid.Column="2" HorizontalAlignment="Left" Margin="0,20" Grid.Row="2" TextWrapping="Wrap" Width="85" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-        <ListBox x:Name="Selected_Faces" Grid.Column="2" HorizontalAlignment="Left" Height="105" Margin="10,35,0,0" VerticalAlignment="Top" Width="160">
+        <ListBox x:Name="Selected_Faces" Grid.Column="2" Margin="0,30,0,4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <ListBoxItem x:Name="Faces_0">0</ListBoxItem>
             <ListBoxItem x:Name="Faces_1">1</ListBoxItem>
             <ListBoxItem x:Name="Faces_2">2</ListBoxItem>
             <ListBoxItem x:Name="Faces_3">3</ListBoxItem>
             <ListBoxItem x:Name="Faces_4orMore">4+</ListBoxItem>
         </ListBox>
-        <Button Content="Buy !" Grid.Column="2" HorizontalAlignment="Left" Margin="95,35,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-
+        <Button Content="Buy !" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,0,20" Grid.Row="2" Width="75" Click="Button_Click" d:LayoutOverrides="TopMargin, BottomMargin"/>
     </Grid>
 </Window>

@@ -27,28 +27,38 @@ namespace Painting_Cost_Calculator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Discount logic is failing me today...
+            RunCalculation();
+        }
 
-            if (float.TryParse(InchesWidth.Text, out float width) && float.TryParse(InchesHeight.Text, out float height))
+        private void RunCalculation()
+        {
+
+            if (float.TryParse(InchesWidth.Text, out float width) && float.TryParse(InchesHeight.Text, out float height) && float.TryParse(Discount.Text, out float discountEntry))
             {
                 float faces = 1;
                 float medium = 0;
+                float discountSum = 1;
+
+                if (discountEntry != 0)
+                {
+                    discountSum = ((100 - discountEntry) / 100);
+                }
 
                 switch (Selected_Faces.SelectedIndex)
                 {
                     case 0:
                         break;
                     case 1:
-                        faces = 1.1f;
+                        faces = 40f;
                         break;
                     case 2:
-                        faces = 1.3f;
+                        faces = 60f;
                         break;
                     case 3:
-                        faces = 1.5f;
+                        faces = 80f;
                         break;
                     case 4:
-                        faces = 1.7f;
+                        faces = 100f;
                         break;
                 }
                 switch (Selected_Medium.SelectedIndex)
@@ -67,13 +77,48 @@ namespace Painting_Cost_Calculator
                         medium = 1;
                         break;
                 }
-                TotalPrice.Text = ((((width / 2) * (height / 2)) * faces) * medium).ToString();
+                TotalPrice.Text = ("£" + (((((width / 2) * (height / 2)) + faces) * medium) * discountSum).ToString());
             }
             else
             {
                 MessageBox.Show("Can only accept numbers");
             }
+        }
 
+        private void InchesWidth_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!float.TryParse(InchesWidth.Text, out float width))
+            {
+                InchesWidth.Background = Brushes.PaleVioletRed;
+            }
+            else
+            {
+                InchesWidth.Background = Brushes.PaleGreen;
+            }
+        }
+
+        private void InchesHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!float.TryParse(InchesHeight.Text, out float height))
+            {
+                InchesHeight.Background = Brushes.Red;
+            }
+            else
+            {
+                InchesHeight.Background = Brushes.PaleGreen;
+            }
+        }
+
+        private void Discount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!float.TryParse(Discount.Text, out float discount))
+            {
+                Discount.Background = Brushes.Red;
+            }
+            else
+            {
+                Discount.Background = Brushes.PaleGreen;
+            }
         }
     }
 }
