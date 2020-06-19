@@ -25,14 +25,55 @@ namespace Painting_Cost_Calculator
             InitializeComponent();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Button was clicked!");
+            // Discount logic is failing me today...
+
+            if (float.TryParse(InchesWidth.Text, out float width) && float.TryParse(InchesHeight.Text, out float height))
+            {
+                float faces = 1;
+                float medium = 0;
+
+                switch (Selected_Faces.SelectedIndex)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        faces = 1.1f;
+                        break;
+                    case 2:
+                        faces = 1.3f;
+                        break;
+                    case 3:
+                        faces = 1.5f;
+                        break;
+                    case 4:
+                        faces = 1.7f;
+                        break;
+                }
+                switch (Selected_Medium.SelectedIndex)
+                {
+                    case 0: // Oil
+                        medium = 1f;
+                        break;
+                    case 1: // Charcoal
+                        medium = 0.4f;
+                        break;
+                    case 2: // Watercolour
+                        medium = 0.7f;
+                        break;
+                    case 3: // Other
+                        MessageBox.Show("This price is dependant on the medium and you will need to explain what you want to get an accurate price.");
+                        medium = 1;
+                        break;
+                }
+                TotalPrice.Text = ((((width / 2) * (height / 2)) * faces) * medium).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Can only accept numbers");
+            }
+
         }
     }
 }
